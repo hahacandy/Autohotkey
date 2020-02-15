@@ -1,5 +1,11 @@
 ﻿#Include Gdip_All.ahk
 
-pToken := Gdip_StartUp()
-pBitmap := Gdip_BitmapFromScreen("123|456|234|567")
-Gdip_SaveBitmapToFile(pBitmap ,"sFile.png")
+
+f2::
+
+	pToken := Gdip_StartUp()
+	;pBitmap := Gdip_BitmapFromHWND(hwnd := WinExist("NoxPlayer1"))
+	WinGetPos, nx, ny,,, NoxPlayer1
+	pBitmap := Gdip_BitmapFromScreen((nx+30) . "|" . (ny+65) . "|150|60")
+	Gdip_SaveBitmapToFile(pBitmap ,"sFile.png")
+	return
